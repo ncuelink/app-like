@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>彰師通 NcueLink</title>
+  <link rel="icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="css/app-like.css">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="app-header">
+    <img src="img/icon.png" alt="Logo" class="app-icon">
+    <h1 class="app-title">彰師通 NcueLink</h1>
+    <button class="header-button" onclick="back()">返回</button>
+  </header>
+
+  <!-- Main Content -->
+  <main class="app-content">
+    <iframe id="content-frame" class="content-frame" src="announcement.html" frameborder="0"></iframe>
+  </main>
+
+  <!-- Navigation Bar -->
+  <nav class="app-nav">
+    <button class="nav-item active" data-src="announcement.html">📢 最新消息</button>
+    <button class="nav-item" data-src="menu.html">📌 功能表</button>
+    <button class="nav-item" data-src="javascript:window.open('https://aps.ncue.edu.tw/ncueact/index.php','行動彰師',config='width=480,height=853.3')">📱行動彰師</button>
+  </nav>
+
+  <script>
+    // 使用 iframe 切換頁面內容
+    const iframe = document.getElementById('content-frame');
+    const navItems = document.querySelectorAll('.nav-item');
+
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // 更新導航列樣式
+        navItems.forEach(btn => btn.classList.remove('active'));
+        item.classList.add('active');
+
+        // 更新 iframe 的 src 屬性
+        const targetSrc = item.getAttribute('data-src');
+        iframe.src = targetSrc;
+      });
+    });
+
+    function back(){
+      history.back();
+    }
+  </script>
+</body>
+</html>
