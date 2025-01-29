@@ -13,8 +13,8 @@
   <!-- Header Section -->
   <header class="app-header">
     <img src="img/icon.png" alt="Logo" class="app-icon">
-    <h1 class="app-title">彰師通 NcueLink</h1>
-    <button class="header-button" onclick="back()">返回</button>
+    <h1 class="app-title">Preview Only</h1>
+    <button class="header-button" onclick="buttonAction()">關閉</button>
   </header>
 
   <!-- Main Content -->
@@ -46,8 +46,9 @@
       });
     });
 
-    function back(){
-      history.back();
+    function buttonAction(){
+      window.close();
+      // history.back();
     }
   </script>
 </body>
